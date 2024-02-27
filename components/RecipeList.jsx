@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const RecipeList = ({ recipes, type }) => {
@@ -17,6 +18,17 @@ const RecipeList = ({ recipes, type }) => {
               src={recipe.strMealThumb}
               className='w-full'
             />
+            <div className="p-5">
+              <h2 className="font-bold text-2xl">{recipe.strMeal}</h2>
+              <div className="flex justify-between">
+                <Link href={`/types/${type}/${recipe.idMeal}`}>
+                  <button className="text-white bg-blue-500 rounded py-1 px-3 mt-5 hover:bg-blue-600">
+                    Get Recipe Details
+                  </button>
+                </Link>
+                
+              </div>
+            </div>
             </div>
             )
         })}
