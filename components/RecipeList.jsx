@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import Price from './Price'
 
 const RecipeList = ({ recipes, type }) => {
   return (
@@ -26,7 +27,7 @@ const RecipeList = ({ recipes, type }) => {
                     Get Recipe Details
                   </button>
                 </Link>
-                
+                <Price price={recipe.price} />
               </div>
             </div>
             </div>

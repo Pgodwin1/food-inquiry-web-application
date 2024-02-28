@@ -15,13 +15,13 @@ export default function Header() {
               <h1 className='text-blue-700 font-bold text-5xl text-center'>Recipes</h1>
             </Link>
         </div>
-        {pathname && currentArea && (
+        {pathname && currentPage && (
         <div>
           <Link
             className="bg-blue-500 text-white p-4 text-xs sm:text-lg rounded font-bold"
-            href={recipeID ? `/types/${currentArea}` : "/types"}
+            href={recipeID ? `/types/${currentPage}` : "/types"}
           >
-            Back to {recipeID ? `${currentArea} recipes` : "recipe types"}
+            Back to {recipeID ? `${currentPage} recipes` : "recipe types"}
           </Link>
         </div>
       )}
