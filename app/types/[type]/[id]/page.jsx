@@ -26,9 +26,10 @@ const page = async ({ params }) => {
     const recipeDetails = await getRecipeDetails(params.id)
     const details = recipeDetails.meals[0];
     const ingredients = Object.keys(details)
-    .filter((key) => key.indexOf("ingredient") === 0)
+    .filter((key) => key.indexOf("strIngredient") === 0)
     .map((ingKey) => (details[ingKey]?.length ? details[ingKey] : undefined))
     .filter(Boolean)
+
 
     const calorieCount = await getCalorieCount(details.strMeal)
     const calories = calorieCount[0]?.calories;
