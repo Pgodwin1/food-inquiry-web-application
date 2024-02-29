@@ -13,7 +13,7 @@ const getCalorieCount = async(id) => {
     const query = `${id} calories`;
     const res = await fetch(`https://api.api-ninjas.com/v1/nutrition?query=${query}`, {
         headers: {
-            "X-Api-Key": process.env.CALORIE_NINJA_KEY,
+            "X-Api-Key": "/kRFqaMb5vachFyMIROKUw==nvo8b0ysDzj99giS",
             "content-type": "application/json"
         }
     })
@@ -32,6 +32,7 @@ const page = async ({ params }) => {
 
     const calorieCount = await getCalorieCount(details.strMeal)
     const calories = calorieCount[0]?.calories;
+    console.log(calories)
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
