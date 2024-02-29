@@ -10,11 +10,10 @@ const getRecipeDetails = async (id) => {
 
 
 const getCalorieCount = async(id) => {
-    const ApiKey = "/kRFqaMb5vachFyMIROKUw==nvo8b0ysDzj99giS";
     const query = `${id} calories`;
     const res = await fetch(`https://api.api-ninjas.com/v1/nutrition?query=${query}`, {
         headers: {
-            "X-Api-Key": ApiKey,
+            "X-Api-Key": process.env.CALORIE_NINJA_KEY,
             "content-type": "application/json"
         }
     })

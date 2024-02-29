@@ -10,14 +10,15 @@ const getRecipes = async (type) => {
 }
 
 const converter = async (formatedPrice) => {
-    const response = await fetch(`https://exchange-rate-api1.p.rapidapi.com/latest`, {
+    const response = await fetch(`https://currency-converter18.p.rapidapi.com/api/v1/convert`, {
         headers: {
-            'X-RapidAPI-Key': '0fc9d49fbcmsh516b497377afd2dp1f27c8jsnc7040083e0c6',
-            'X-RapidAPI-Host': 'exchange-rate-api1.p.rapidapi.com'
+            'X-RapidAPI-Key': process.env.CONVERTER_X_KEY,
+            'X-RapidAPI-Host': process.env.CONVERTER_X_HOST,
         },
         params: {
-            base: 'NGN',
-          amount: formatedPrice,
+          from: 'NGN',
+          to: 'USD',
+          amount: "500"
         },
       });
       const res = await response.json();
@@ -25,9 +26,9 @@ const converter = async (formatedPrice) => {
 }
 
 const page = async({ params, formatedPrice }) => {
-    const convertedPrice = await converter(formatedPrice);
-    // console.log(convertedPrice)
-    const ngnToUsdRate = convertedPrice.rates.USD;
+    const convertedPrice = await converter(500);
+    console.log(convertedPrice)
+    const ngnToUsdRate = convertedPrice.rates;
     console.log(ngnToUsdRate)
     const recipes = await getRecipes(params.type);
   return (

@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -27,7 +26,7 @@ export default function GoogleMaps() {
     useEffect(() => {
         const initializeMap = async () => {
             const loader = new Loader({
-                apiKey: process.env.PUBLIC_KEY,
+                apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
                 version: 'quartely',
             });
             const { Map } = await loader.importLibrary('maps');
